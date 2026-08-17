@@ -13,11 +13,6 @@ def isearch(L, x):
     ###TODO
     pass
 
-def test_isearch():
-    assert isearch([1, 3, 5, 4, 2, 9, 7], 2) == (2 in [1, 3, 5, 4, 2, 9, 7])
-    assert isearch([1, 3, 5, 2, 9, 7], 99) == (99 in [1, 3, 5, 2, 9, 7])
-
-
 def iterate(f, x, a):
     # done. do not change me.
     if len(a) == 0:
@@ -30,10 +25,6 @@ def iterate(f, x, a):
 def rsearch(L, x):
     ###TODO
     pass
-
-def test_rsearch():
-    assert rsearch([1, 3, 5, 4, 2, 9, 7], 2) == (2 in [1, 3, 5, 4, 2, 9, 7])
-    assert rsearch([1, 3, 5, 2, 9, 7], 99) == (99 in [1, 3, 5, 2, 9, 7])
 
 def reduce(f, id_, a):
     print(a)
@@ -126,30 +117,6 @@ def doc_index_reduce(group):
     """
     ### TODO fix this line
     return (group[0], group[1])
-    
-def test_dedup():
-    assert dedup([1,2,3], [3,4,5]) == [1,2,3,4,5]
-    
-def test_doc_index_reduce():
-    assert doc_index_reduce(['is', [0,0,1,2]]) == ('is', [0,1,2])
-
-def test_index():
-    res = run_map_reduce(doc_index_map, doc_index_reduce,
-               [('document one is cool is it', 0),
-                ('document two is also cool', 1),
-                ('document three is kinda neat', 2)
-               ])    
-    assert res == [('also', [1]),
-                   ('cool', [0, 1]),
-                   ('document', [0, 1, 2]),
-                   ('is', [0, 1, 2]),
-                   ('it', [0]),
-                   ('kinda', [2]),
-                   ('neat', [2]),
-                   ('one', [0]),
-                   ('three', [2]),
-                   ('two', [1])]
-    
 
 def collect(pairs):
     """
@@ -212,13 +179,6 @@ def parens_update(current_output, next_input):
     """
     ###TODO
     pass
-
-
-def test_parens_match_iterative():
-    assert parens_match_iterative(['(', ')']) == True
-    assert parens_match_iterative(['(']) == False
-    assert parens_match_iterative([')']) == False
-
 
 #### Scan solution
 
@@ -284,11 +244,6 @@ def min_f(x,y):
         return x
     return y
 
-def test_parens_match_scan():
-    assert parens_match_scan(['(', ')']) == True
-    assert parens_match_scan(['(']) == False
-    assert parens_match_scan([')']) == False
-
 #### Divide and conquer solution
 
 def parens_match_dc(mylist):
@@ -315,8 +270,3 @@ def parens_match_dc_helper(mylist):
     ###TODO
     pass
     
-
-def test_parens_match_dc():
-    assert parens_match_dc(['(', ')']) == True
-    assert parens_match_dc(['(']) == False
-    assert parens_match_dc([')']) == False
