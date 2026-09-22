@@ -9,7 +9,9 @@ def test_isearch():
 # 2 pts
 def test_isearch2():
     assert isearch([1, 3, 5, 2, 9, 7], 99) == (99 in [1, 3, 5, 2, 9, 7])
-    assert isearch([], 2) == (2 in [1, 3, 5])
+    assert isearch([1, 3, 5], 2) == (2 in [1, 3, 5])
+    assert isearch([], 2) == (2 in [])
+    
 
 # 2 pts
 def test_rsearch():
